@@ -1,1 +1,1 @@
-from .function import *
+from .main import *
