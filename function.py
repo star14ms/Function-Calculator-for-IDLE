@@ -78,7 +78,7 @@ def help():
         print("starting messege: 'messege()'\n")
         print("defining function f : 'fx()'\n")
         print("f(x), df(x), 'F(x)', DF(r-n, r-n) :")
-        print("f(x), differential, integral(indef) and integral(def)\n")
+        print("funcion f, differential, integral(indef) and integral(def)\n")
         print("(x = 'x' or rational-number)\n")
         print("Can define g(x) also (put g in place of f)")
     elif language == ["Korean"]:
@@ -87,7 +87,7 @@ def help():
         print("시작 메세지: '메세지()'\n")
         print("함수 f 정의 : 'fx()'\n")
         print("f(x), df(x), 'F(x)', DF(유리수, 유리수)) :")
-        print("f(x), 미분, 부정적분, 정벅분\n")
+        print("함수 f, 미분, 부정적분, 정벅분\n")
         print("x = 'x' or 유리수\n")
         print("함수 g도 정의 가능 (f 자리에 g를 넣어서)\n")
         print("fraction(a, b) 뜻 : a/b")  # fraction 해석
@@ -105,11 +105,10 @@ def value_of_function(x, coefs):
 
 ################################################################################################################################
 
-### 유리 함수 f(x) 추가 ###
+### f(x) 추가 ###
 
 f_coefs = []
 df_coefs = []
-F_coefs = []
 f_function = []
 
 ## 함수 f(x) 정의 ## (각 항의 계수를 입력받아 위에 list 형태로 저장)
@@ -207,14 +206,14 @@ def F(x):
         if f_coefs[0] == 0 and len(f_coefs) == 1:  # 항이 0 하나면 0 출력
             return 0
 
-        del F_coefs[:]
+        del df_coefs[:]
         for n in range(len(f_coefs)):  # 각 항에서
-            F_coefs.append(f_coefs[n] / (n + 1))  # 새 계수 = 계수 / (차수+1)
+            df_coefs.append(f_coefs[n] / (n + 1))  # 새 계수 = 계수 / (차수+1)
 
-        F_coefs.reverse()
-        F_coefs.append("C")  # 적분상수 C 추가
-        F_coefs.reverse()
-        print("F(x) = " + Change_human_tailored_expression(F_coefs))
+        df_coefs.reverse()
+        df_coefs.append("C")  # 적분상수 C 추가
+        df_coefs.reverse()
+        print("∫f(x)dx = " + Change_human_tailored_expression(df_coefs))
 
     except:
         if f_coefs == []:
@@ -241,11 +240,11 @@ def DF(range_a, range_b):
         b = Change_str_fraction(str(range_b))
 
         value = 0
-        del F_coefs[:]
-        for n in range(len(f_coefs)):
-            F_coefs.append(f_coefs[n] / (n + 1))
-            F_coefs[n] = F_coefs[n] * (b ** (n + 1) - a ** (n + 1))
-            value += F_coefs[n]  # value = 각 항을 정적분하여 모두 더한 값
+        del df_coefs[:]
+        for n in range(len(df_coefs)):
+            df_coefs.append(df_coefs[n] / (n + 1))
+            df_coefs[n] = df_coefs[n] * (b ** (n + 1) - a ** (n + 1))
+            value += df_coefs[n]  # value = 각 항을 정적분하여 모두 더한 값
         return value
 
     except:
@@ -260,14 +259,13 @@ def DF(range_a, range_b):
             elif language == ["Korean"]:
                 print("'오류: 유리수가 아님'")
 
-
+                
 ################################################################################################################################
 
-### 유리 함수 g(x) 추가 ### (함수 f(x)와 똑같은 코드, g(x) 버전)
+### 함수 g(x) 추가 ### (함수 f(x)와 똑같은 코드, g(x) 버전)
 
 g_coefs = []
 dg_coefs = []
-G_coefs = []
 g_function = []
 
 ## 함수 g(x) 정의 ##
@@ -365,14 +363,14 @@ def G(x):
         if g_coefs[0] == 0 and len(g_coefs) == 1:
             return 0
 
-        del G_coefs[:]
+        del dg_coefs[:]
         for n in range(len(g_coefs)):
-            G_coefs.append(g_coefs[n] / (n + 1))
+            dg_coefs.append(g_coefs[n] / (n + 1))
 
-        G_coefs.reverse()
-        G_coefs.append("C")
-        G_coefs.reverse()
-        print("G(x) = " + Change_human_tailored_expression(G_coefs))
+        dg_coefs.reverse()
+        dg_coefs.append("C")
+        dg_coefs.reverse()
+        print("∫g(x)dx = " + Change_human_tailored_expression(dg_coefs))
 
     except:
         if g_coefs == []:
@@ -399,11 +397,11 @@ def DG(range_a, range_b):
         b = Change_str_fraction(str(range_b))
 
         value = 0
-        del G_coefs[:]
+        del dg_coefs[:]
         for n in range(len(g_coefs)):
-            G_coefs.append(g_coefs[n] / (n + 1))
-            G_coefs[n] = G_coefs[n] * (b ** (n + 1) - a ** (n + 1))
-            value += G_coefs[n]  # value = 각 항을 정적분하여 모두 더한 값
+            dg_coefs.append(g_coefs[n] / (n + 1))
+            dg_coefs[n] = dg_coefs[n] * (b ** (n + 1) - a ** (n + 1))
+            value += dg_coefs[n]  # value = 각 항을 정적분하여 모두 더한 값
         return value
 
     except:
@@ -425,11 +423,13 @@ def DG(range_a, range_b):
 def tutorial():
     if language == ["English"]:
         print("if you wanna exit tutorial, type 'break'")
+        print("Usage of 'fx()', f(x) command")
         print(
             "Try to type 'fx()' and to type the coefficients for each terms (descending order)"
         )
     elif language == ["Korean"]:
         print("튜토리얼에서 나가길 원하면 'break'를 쳐라")
+        print("'fx()', f(x) 명령어의 사용법")
         print("'fx()'를 치고, 각 항의 계수들을 입력해 보아라 (내림차순)")
 
     while True:
