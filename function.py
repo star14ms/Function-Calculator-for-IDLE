@@ -241,8 +241,8 @@ def DF(range_a, range_b):
 
         value = 0
         del df_coefs[:]
-        for n in range(len(df_coefs)):
-            df_coefs.append(df_coefs[n] / (n + 1))
+        for n in range(len(f_coefs)):
+            df_coefs.append(f_coefs[n] / (n + 1))
             df_coefs[n] = df_coefs[n] * (b ** (n + 1) - a ** (n + 1))
             value += df_coefs[n]  # value = 각 항을 정적분하여 모두 더한 값
         return value
@@ -259,7 +259,7 @@ def DF(range_a, range_b):
             elif language == ["Korean"]:
                 print("'오류: 유리수가 아님'")
 
-                
+
 ################################################################################################################################
 
 ### 함수 g(x) 추가 ### (함수 f(x)와 똑같은 코드, g(x) 버전)
