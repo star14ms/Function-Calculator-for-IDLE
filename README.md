@@ -8,7 +8,7 @@ from function import *
 # importing (necessary!) 
 ```
 ```
-help(); messege(); Korean(); English()
+help(); messege(); tutorial(); Korean(); English()
 # supporting command
 ```
 ```
@@ -20,7 +20,7 @@ fx(); gx()
 # x^4 + 2x^3 + 3x^2 + 4x + 5
 ```
 ```
-f(x), df(x), F(x), dF(x)
+f(x), df(x), F(x), DF(x)
 # function f, differential, integral-indef and integral-def
 # x = 'x' or rational-number
 ```
