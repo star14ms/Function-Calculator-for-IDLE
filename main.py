@@ -423,14 +423,15 @@ def DG(range_a, range_b):
 
 ## Tutorial ##
 def tutorial():
+    print("-" * 60)
     if language == ["English"]:
-        print("if you wanna exit tutorial, type 'break'")
+        print("if you wanna exit tutorial, type 'exit'")
         print("Usage of 'fx()', f(x) command")
         print(
             "Try to type 'fx()' and to type the coefficients for each terms (descending order)"
         )
     elif language == ["Korean"]:
-        print("튜토리얼에서 나가길 원하면 'break'를 쳐라")
+        print("튜토리얼에서 나가길 원하면 'exit'를 쳐라")
         print("'fx()', f(x) 명령어의 사용법")
         print("'fx()'를 치고, 각 항의 계수들을 입력해 보아라 (내림차순)")
 
@@ -446,7 +447,7 @@ def tutorial():
 
         a = input()
 
-        if a == "break" or a == "break()":
+        if a == "break" or a == "break()" or a == "exit" or a == "exit()":
             break
 
         elif a == "english" or a == "english()" or a == "English" or a == "English()":
@@ -500,6 +501,11 @@ def tutorial():
                         print("다시 해 봐요")
                     else:
                         print("잘했어요!")
+    if language == ["English"]:
+        print("Tutorial exit")
+    elif language == ["Korean"]:
+        print("튜토리얼 나가기")
+    print("-" * 60)
 
 
 def 튜토리얼():
