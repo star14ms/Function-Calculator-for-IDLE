@@ -33,30 +33,37 @@ def english():
 
 ### start messege ###
 def messege():
+    print("messege()")
     print("-" * 60)
+
     if language == ["English"]:
-        print("1. Defining f(x):")
-        print(
-            "Type 'fx()', and then type the coefficients for each terms (descending order)"
-        )
+        print("1. Defining function:")
+        print("Type 'fx()' or 'gx()', and then type the coefficients for each terms (descending order)")
         print("(Separate by spacing, Scope: rational-number)\n")
 
         print("2. Getting a value of function")
-        print(
-            "Type f(x), df(x), 'F(x)' or DF(a, b) with a substitute of some rational-num in x, a, b"
-        )
-        print(
-            "if you wanna type infinitely decimal, attach ' to both sides of the each of x, a, b value."
-        )
+        print("Type f(x), df(x), 'F(x)' or DF(a, b) with a substitute of some rational-num in x, a, b")
+        print("if you wanna type infinitely decimal, attach ' to both sides of the each of x, a, b value.")
+        print("ex) f('1/3'), df(2), F(x), DF(1.5, 2.5)\n")
+
+        print("3. Calculating between functions")
+        print("sum/difference of f(x), g(x) : xs(a,b) / xd(a,b)")
+        print("(a, b = 'f(x)' or 'g(x)')\n")
+
     elif language == ["Korean"]:
-        print("1. f(x) 정의하기")
-        print("'f(x)'를 입력한 다음, 각 항의 계수들을 입력해라 (내림차순)")
+        print("1. 함수 정의하기")
+        print("'f(x)' or 'gx()'를 입력한 다음, 각 항의 계수들을 입력해라 (내림차순)")
         print("띄어쓰기로 항 구분, 범위: 유리수\n")
 
         print("2. 함수값 구하기")
         print("x, a, b 에 유리수를 대입하여 f(x) 또는 df(x), 'F(x)', DF(a, b)를 입력해라")
         print("만약 무한소수를 입력하고 싶다면, x, a, b 각각 양옆에 '를 붙여라")
-    print("ex) f('1/3'), df(2), F(x), DF(1.5, 2.5)\n")
+        print("ex) f('1/3'), df(2), F(x), DF(1.5, 2.5)\n")
+
+        print("3. 함수끼리 연산하기")
+        print("f(x), g(x)의 합/차 : xs(a,b) / xd(a,b)")
+        print("(a, b = 'f(x)' or 'g(x)')\n")
+
     print("commands to help you : 'help()', 'tutorial()'")
     print("language selection: 'English()', '한국어()'")
     print("-" * 60)
@@ -77,20 +84,29 @@ def help():
         print("tutorial : 'tutorial()'")
         print("language selection : 'korean()', 'english()'")
         print("starting messege: 'messege()'\n")
-        print("defining function f : 'fx()'\n")
+
+        print("defining function : 'fx()' or 'gx()'\n")
+
         print("f(x), df(x), 'F(x)', DF(r-n, r-n) :")
-        print("funcion f, differential, integral(indef) and integral(def)\n")
+        print("funcion f, differential, integral(indef) and integral(def)")
         print("(x = 'x' or rational-number)\n")
-        print("Can define g(x) also (put g in place of f)")
+
+        print("(g(x), dg(x), 'G(x)', DG(r-n, r-n))\n")
+        print("sum/difference of f(x), g(x) : xs(a,b) / xd(a,b) (a, b = 'f(x)' or 'g(x)')")
     elif language == ["Korean"]:
         print("튜토리얼 : '튜토리얼()'")
         print("언어 선택 : '한국어()', 'english()'")
         print("시작 메세지: '메세지()'\n")
-        print("함수 f 정의 : 'fx()'\n")
+
+        print("함수 정의 : 'fx()' or 'gx()'\n")
+
         print("f(x), df(x), 'F(x)', DF(유리수, 유리수)) :")
-        print("함수 f, 미분, 부정적분, 정벅분\n")
+        print("함수 f, 미분, 부정적분, 정벅분")
         print("x = 'x' or 유리수\n")
-        print("함수 g도 정의 가능 (f 자리에 g를 넣어서)\n")
+
+        print("(g(x), dg(x), 'G(x)', DG(유리수, 유리수))\n")
+        print("f(x), g(x)의 합/차 : xs(a,b) / xd(a,b) (a, b = 'f(x)' or 'g(x)')")
+
         print("fraction(a, b) 뜻 : a/b")  # fraction 해석
     print("-" * 60)
 
@@ -150,8 +166,14 @@ def fx():
 ## f(x) 함숫값 ##
 def f(x):
     try:
-        x = Change_str_fraction(str(x))
-        return value_of_function(x, f_coefs)  # 함숫값 계산, 출력
+        if f_coefs == []:
+            raise
+        if x == "x":
+            print("f(x) =", f_function[0])
+            return f_coefs
+        else:
+            x = Change_str_fraction(str(x))
+            return value_of_function(x, f_coefs)  # 함숫값 계산, 출력
 
     except:
         if f_coefs == []:
@@ -159,8 +181,6 @@ def f(x):
                 print("'Error: f(x) is not defined'")
             elif language == ["Korean"]:
                 print("'오류: f(x)가 정의되지 않음'")
-        elif x == "x":
-            print("f(x) =", f_function[0])
         elif isTrue_rational_num(x) == False:
             if language == ["English"]:
                 print("'Error: not rational numbers'")
@@ -307,8 +327,14 @@ def gx():
 ## g(x) 함숫값 ##
 def g(x):
     try:
-        x = Change_str_fraction(str(x))
-        return value_of_function(x, g_coefs)
+        if g_coefs == []:
+            raise
+        if x == "x":
+            print("g(x) =", g_function[0])
+            return g_coefs
+        else:
+            x = Change_str_fraction(str(x))
+            return value_of_function(x, g_coefs)  # 함숫값 계산, 출력
 
     except:
         if g_coefs == []:
@@ -316,8 +342,6 @@ def g(x):
                 print("'Error: g(x) is not defined'")
             elif language == ["Korean"]:
                 print("'오류: g(x)가 정의되지 않음'")
-        elif x == "x":
-            print("g(x) =", g_function[0])
         elif isTrue_rational_num(x) == False:
             if language == ["English"]:
                 print("'Error: not rational numbers'")
@@ -421,18 +445,78 @@ def DG(range_a, range_b):
 
 ################################################################################################################################
 
+### x에 관한 식(함수)끼리 더하기 ###
+def xs(a, b):
+    try:
+        if str(type(a)) == "<class 'list'>" and str(type(b)) == "<class 'list'>":
+            x_difference = []
+            if len(a) >= len(b):
+                for n in range(len(a)):
+                    if len(b)-1 >= n:
+                        x_difference.append(a[n] + b[n])
+                    else:
+                        x_difference.append(a[n])
+            else:
+                for n in range(len(b)):
+                    if len(a)-1 >= n:
+                        x_difference.append(a[n] + b[n])
+                    else:
+                        x_difference.append(b[n])
+
+            print("sum(x) =", Change_human_tailored_expression(x_difference))
+            return x_difference
+        else:
+            raise
+    except:
+        if language == ["English"]:
+            print("'Error: at least one is not expression for x'")
+        elif language == ["Korean"]:
+            print("'오류: 적어도 하나가 x에 관한 식이 아님'")
+
+
+### x에 관한 식(함수)끼리 빼기 ###
+def xd(a, b):
+    try:
+        if str(type(a)) == "<class 'list'>" and str(type(b)) == "<class 'list'>":
+            x_difference = []
+            if len(a) >= len(b):
+                for n in range(len(a)):
+                    if len(b)-1 >= n:
+                        x_difference.append(a[n] - b[n])
+                    else:
+                        x_difference.append(a[n])
+            else:
+                for n in range(len(b)):
+                    if len(a)-1 >= n:
+                        x_difference.append(a[n] - b[n])
+                    else:
+                        x_difference.append(- b[n])
+
+            print("difference(x) =", Change_human_tailored_expression(x_difference))
+            return x_difference
+        else:
+            raise
+    except:
+        if language == ["English"]:
+            print("'Error: at least one is not expression for x'")
+        elif language == ["Korean"]:
+            print("'오류: 적어도 하나가 x에 관한 식이 아님'")
+
+
+################################################################################################################################
+
 ## Tutorial ##
 def tutorial():
     print("-" * 60)
     if language == ["English"]:
         print("if you wanna exit tutorial, type 'exit'")
-        print("Usage of 'fx()', f(x) command")
+        print("Tutorial: Usage of 'fx()', f(x) command")
         print(
             "Try to type 'fx()' and to type the coefficients for each terms (descending order)"
         )
     elif language == ["Korean"]:
         print("튜토리얼에서 나가길 원하면 'exit'를 쳐라")
-        print("'fx()', f(x) 명령어의 사용법")
+        print("튜토리얼: 'fx()', f(x) 명령어의 사용법")
         print("'fx()'를 치고, 각 항의 계수들을 입력해 보아라 (내림차순)")
 
     while True:
@@ -443,31 +527,35 @@ def tutorial():
                     "Try to Type f(rational-number), 'f(x)', or 'fx()' again to redefine"
                 )
             elif language == ["Korean"]:
-                print("f(유리수), 'f(x)'를 쳐봐라, 아니면 함수 재정의를 위해 'fx()'를 다시 쳐라")
+                print("f(유리수), 'f(x)'를 쳐봐라, 또는 함수 재정의를 위해 'fx()'를 다시 쳐라")
 
         a = input()
 
         if a == "break" or a == "break()" or a == "exit" or a == "exit()":
             break
 
-        elif a == "english" or a == "english()" or a == "English" or a == "English()":
+        elif a == "English()" or a == "english()":
             English()
             print("if you wanna exit tutorial, type 'break'")
-            print(
-                "Try to type 'fx()' and to type the coefficients for each terms (descending order)"
-            )
+            print("Try to type 'fx()' and to type the coefficients for each terms (descending order)")
 
-        elif a == "korean" or a == "korean()" or a == "Korean" or a == "Korean()" or a == "한국어" or a == "한국어()":
+        elif a == "Korean()" or a == "korean()" or a == "한국어()":
             Korean()
             print("튜토리얼에서 나가길 원하면 'break'를 쳐라")
             print("'fx()'를 치고, 각 항의 계수들을 입력해 보아라 (내림차순)")
 
+        elif a == "fx":
+            if language == ["English"]:
+                print("Type '()' too!")
+            elif language == ["Korean"]:
+                print("'()'도 쳐라!")
+            
         ## 함수 정의 명령어 'fx()'를 입력 ##
         elif a == "fx()":
 
             # fx() 실행
             fx()
-
+        
         ## 함수 정의를 먼저 했는지 검사 ##
         elif f_coefs == []:
             if language == ["English"]:
@@ -491,16 +579,7 @@ def tutorial():
 
             else:  # f(x) 값 출력 #
                 print(f(x))
-                if language == ["English"]:
-                    if f(x) == None:
-                        print("try again")
-                    else:
-                        print("great!")
-                elif language == ["Korean"]:
-                    if f(x) == None:
-                        print("다시 해 봐요")
-                    else:
-                        print("잘했어요!")
+
     if language == ["English"]:
         print("Tutorial exit")
     elif language == ["Korean"]:
