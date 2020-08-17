@@ -72,6 +72,7 @@ messege()
 
 ### help ###
 def help():
+    print("-" * 60)
     if language == ["English"]:
         print("tutorial : 'tutorial()'")
         print("language selection : 'korean()', 'english()'")
@@ -91,6 +92,7 @@ def help():
         print("x = 'x' or 유리수\n")
         print("함수 g도 정의 가능 (f 자리에 g를 넣어서)\n")
         print("fraction(a, b) 뜻 : a/b")  # fraction 해석
+    print("-" * 60)
 
 
 ## 함숫값 구하기 ##
