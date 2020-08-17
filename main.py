@@ -42,12 +42,12 @@ def messege():
         print("(Separate by spacing, Scope: rational-number)\n")
 
         print("2. Getting a value of function")
-        print("Type f(x), df(x), 'F(x)' or DF(a, b) with a substitute of some rational-num in x, a, b")
+        print("Type f(x), df(x), 'F(x)' or DF(a,b) with a substitute of some rational-num in x, a, b")
         print("if you wanna type infinitely decimal, attach ' to both sides of the each of x, a, b value.")
-        print("ex) f('1/3'), df(2), F(x), DF(1.5, 2.5)\n")
+        print("ex) f('1/3'), df(2), F(x), DF(1.5,2.5)\n")
 
         print("3. Calculating between functions")
-        print("sum/difference of f(x), g(x) : xs(a,b) / xd(a,b)")
+        print("sum/difference/multiplication of f(x), g(x) : xs(a,b) / xd(a,b) / xm(a,b)")
         print("(a, b = 'f(x)' or 'g(x)')\n")
 
     elif language == ["Korean"]:
@@ -56,12 +56,12 @@ def messege():
         print("띄어쓰기로 항 구분, 범위: 유리수\n")
 
         print("2. 함수값 구하기")
-        print("x, a, b 에 유리수를 대입하여 f(x) 또는 df(x), 'F(x)', DF(a, b)를 입력해라")
+        print("x, a, b 에 유리수를 대입하여 f(x) 또는 df(x), 'F(x)', DF(a,b)를 입력해라")
         print("만약 무한소수를 입력하고 싶다면, x, a, b 각각 양옆에 '를 붙여라")
         print("ex) f('1/3'), df(2), F(x), DF(1.5, 2.5)\n")
 
         print("3. 함수끼리 연산하기")
-        print("f(x), g(x)의 합/차 : xs(a,b) / xd(a,b)")
+        print("f(x), g(x)의 합/차/곱 : xs(a,b) / xd(a,b) / xm(a,b)")
         print("(a, b = 'f(x)' or 'g(x)')\n")
 
     print("commands to help you : 'help()', 'tutorial()'")
@@ -92,7 +92,7 @@ def help():
         print("(x = 'x' or rational-number)\n")
 
         print("(g(x), dg(x), 'G(x)', DG(r-n, r-n))\n")
-        print("sum/difference of f(x), g(x) : xs(a,b) / xd(a,b) (a, b = 'f(x)' or 'g(x)')")
+        print("sum/difference/multiplication of f(x), g(x) : xs(a,b) / xd(a,b) / xm(a,b) (a, b = 'f(x)' or 'g(x)')")
     elif language == ["Korean"]:
         print("튜토리얼 : '튜토리얼()'")
         print("언어 선택 : '한국어()', 'english()'")
@@ -105,7 +105,7 @@ def help():
         print("x = 'x' or 유리수\n")
 
         print("(g(x), dg(x), 'G(x)', DG(유리수, 유리수))\n")
-        print("f(x), g(x)의 합/차 : xs(a,b) / xd(a,b) (a, b = 'f(x)' or 'g(x)')")
+        print("f(x), g(x)의 합/차/곱 : xs(a,b) / xd(a,b) / xm(a,b) (a, b = 'f(x)' or 'g(x)')")
 
         print("fraction(a, b) 뜻 : a/b")  # fraction 해석
     print("-" * 60)
@@ -445,36 +445,43 @@ def DG(range_a, range_b):
 
 ################################################################################################################################
 
-### x에 관한 식(함수)끼리 더하기 ###
+### x에 관한 식의 연산 ###
+
+## 오류 메세지 ##
+def error_messege_not_expression_for_x():
+    if language == ["English"]:
+        print("'Error: at least one is not expression for x'")
+    elif language == ["Korean"]:
+        print("'오류: 적어도 하나가 x에 관한 식이 아님'")
+
+
+## x에 관한 식(함수)끼리 더하기 ##
 def xs(a, b):
     try:
         if str(type(a)) == "<class 'list'>" and str(type(b)) == "<class 'list'>":
-            x_difference = []
+            x_sum = []
             if len(a) >= len(b):
                 for n in range(len(a)):
                     if len(b)-1 >= n:
-                        x_difference.append(a[n] + b[n])
+                        x_sum.append(a[n] + b[n])
                     else:
-                        x_difference.append(a[n])
+                        x_sum.append(a[n])
             else:
                 for n in range(len(b)):
                     if len(a)-1 >= n:
-                        x_difference.append(a[n] + b[n])
+                        x_sum.append(a[n] + b[n])
                     else:
-                        x_difference.append(b[n])
+                        x_sum.append(b[n])
 
-            print("sum(x) =", Change_human_tailored_expression(x_difference))
-            return x_difference
+            print("sum(x) =", Change_human_tailored_expression(x_sum))
+            return x_sum
         else:
             raise
     except:
-        if language == ["English"]:
-            print("'Error: at least one is not expression for x'")
-        elif language == ["Korean"]:
-            print("'오류: 적어도 하나가 x에 관한 식이 아님'")
+        error_messege_not_expression_for_x()
 
 
-### x에 관한 식(함수)끼리 빼기 ###
+## x에 관한 식(함수)끼리 빼기 ##
 def xd(a, b):
     try:
         if str(type(a)) == "<class 'list'>" and str(type(b)) == "<class 'list'>":
@@ -497,10 +504,24 @@ def xd(a, b):
         else:
             raise
     except:
-        if language == ["English"]:
-            print("'Error: at least one is not expression for x'")
-        elif language == ["Korean"]:
-            print("'오류: 적어도 하나가 x에 관한 식이 아님'")
+        error_messege_not_expression_for_x()
+
+
+## x에 관한 식(함수)끼리 곱하기(전개) ##
+def xm(a, b):
+    try:
+        x_expansion = []
+        for l in range(len(a)+len(b)-1):
+            x_expansion.append(0)
+    
+        for n in range(len(a)):
+            for m in range(len(b)):
+                x_expansion[n+m] = x_expansion[n+m] + a[n] * b[m]
+                
+        print("expansion(x) =", Change_human_tailored_expression(x_expansion))
+        return x_expansion
+    except:
+        error_messege_not_expression_for_x()
 
 
 ################################################################################################################################
