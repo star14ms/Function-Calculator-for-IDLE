@@ -25,12 +25,10 @@ def 계수0_생략(coefs):
       del 항정보[len(coefs)-1-n]
 
 def Change_human_tailored_expression(coefs): # 인간맞춤형 식 출력
+  del 항정보[:]
   계수1_생략(coefs)
   x기호_지수_추가(coefs)
   제곱01_생략(coefs)
   계수0_생략(coefs)
   항정보.reverse()
-  del 식[:]
-  식.extend(항정보)
-  del 항정보[:]
   return '+'.join(식).replace('+-','-').replace('-',' - ').replace('+',' + ').lstrip(' ')
