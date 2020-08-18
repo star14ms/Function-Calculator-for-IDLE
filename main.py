@@ -42,7 +42,7 @@ def messege():
         print("(Separate by spacing, Scope: rational-number)\n")
 
         print("2. Getting a value of function")
-        print("funcion f, derivative, integral(indef) and integral(def) :")
+        print("funcion f, derivative, definite-integral, and indefinite-integral :")
         print("f(x), d('f(x)', x), ii('f(x)'), di('f(x)', r-num, r-num) (or 'g(x)')\n")
 
         print("(x = 'x' or rational-number or function)")
@@ -50,7 +50,7 @@ def messege():
         print("ex) f('1/3'), d(g(x), 2), d(f(x), g(x)), ii(f(x)), di(g(x),1.5,2.5)\n")
 
         print("3. Calculating between functions")
-        print("sum/difference/multiplication/composite_function of f(x), g(x) :\nxs(a,b) / xd(a,b) / xm(a,b) / xc(a,b)")
+        print("sum/difference/multiplication/composite of functions :\nxs(a,b) / xd(a,b) / xm(a,b) / xc(a,b)")
         print("(a, b = function)")
         print("xc(f(x),g(x)) = f(g(x))\n")
         
@@ -68,7 +68,7 @@ def messege():
         print("ex) f('1/3'), d(g(x), 2), d(f(x), g(x)), ii(f(x)), di('g(x)',1.5,2.5)\n")
 
         print("3. 함수끼리 연산하기")
-        print("f(x), g(x)의 합/차/곱/합성 : xs(a,b) / xd(a,b) / xm(a,b) / xc(a,b)")
+        print("함수의 합/차/곱/합성 : xs(a,b) / xd(a,b) / xm(a,b) / xc(a,b)")
         print("(a, b = function)")
         print("xc(f(x),g(x)) = f(g(x))\n")
 
@@ -96,11 +96,11 @@ def help():
 
         print("defining function : 'fx()' or 'gx()'\n")
 
-        print("funcion f, derivative, integral(indef) and integral(def) :")
+        print("funcion f, derivative, definite-integral, and indefinite-integral :")
         print("f(x), d('f(x)', x), ii('f(x)'), di('f(x)', r-num, r-num) (or 'g(x)')")
         print("(x = 'x' or rational-number or function)\n")
 
-        print("sum/difference/multiplication/composite_function of f(x), g(x) : xs(a,b) / xd(a,b) / xm(a,b) / xc(a,b)")
+        print("sum/difference/multiplication/composite of functions : xs(a,b) / xd(a,b) / xm(a,b) / xc(a,b)")
         print("(a, b = function)")
     elif language == ["Korean"]:
         print("튜토리얼 : '튜토리얼()'")
@@ -113,7 +113,7 @@ def help():
         print("f(x), d('f(x)', x), ii('f(x)'), di('f(x)',유리수,유리수)) (or 'g(x)')")
         print("(x = 'x' or 유리수 or function)\n")
 
-        print("f(x), g(x)의 합/차/곱/합성 : xs(a,b) / xd(a,b) / xm(a,b) / xc(a,b)")
+        print("함수의 합/차/곱/합성 : xs(a,b) / xd(a,b) / xm(a,b) / xc(a,b)")
         print("(a, b = function)")
     print("-" * 60)
 
