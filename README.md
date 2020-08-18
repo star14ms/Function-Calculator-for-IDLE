@@ -19,7 +19,7 @@ fx(); gx()
 # x^4 + 2x^3 + 3x^2 + 4x + 5
 ```
 ```
-f(x); df(x); F(x); DF(a, b);
+f(x); d(function, x); ii(function); di(function, a, b);
 # : function f, differential, integral-indef and integral-def (: 함수 f, 미분, 부정적분, 정적분)
 # x = 'x' or rational-number / a, b = rational-numbers (rational-number : 유리수)
 ```
