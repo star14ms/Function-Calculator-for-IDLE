@@ -42,28 +42,37 @@ def messege():
         print("(Separate by spacing, Scope: rational-number)\n")
 
         print("2. Getting a value of function")
-        print("Type f(x), df(x), 'F(x)' or DF(a,b) with a substitute of some rational-num in x, a, b")
-        print("if you wanna type infinitely decimal, attach ' to both sides of the each of x, a, b value.")
-        print("ex) f('1/3'), df(2), F(x), DF(1.5,2.5)\n")
+        print("funcion f, derivative, integral(indef) and integral(def) :")
+        print("f(x), d('f(x)', x), ii('f(x)'), di('f(x)', r-num, r-num)\n")
+
+        print("(x = 'x' or rational-number or function)")
+        print("(if you wanna type infinitely decimal, attach ' to both sides of the each of x, a, b value)")
+        print("ex) f('1/3'), d(g(x), 2), d(f(x), g(x)), ii(f(x)), di(g(x),1.5,2.5)\n")
 
         print("3. Calculating between functions")
-        print("sum/difference/multiplication of f(x), g(x) : xs(a,b) / xd(a,b) / xm(a,b)")
-        print("(a, b = 'f(x)' or 'g(x)')\n")
-
+        print("sum/difference/multiplication/composite_function of f(x), g(x) :\nxs(a,b) / xd(a,b) / xm(a,b) / xc(a,b)")
+        print("(a, b = function)")
+        print("xc(f(x),g(x)) = f(g(x))\n")
+        
     elif language == ["Korean"]:
         print("1. 함수 정의하기")
         print("'f(x)' or 'gx()'를 입력한 다음, 각 항의 계수들을 입력해라 (내림차순)")
         print("띄어쓰기로 항 구분, 범위: 유리수\n")
 
         print("2. 함수값 구하기")
-        print("x, a, b 에 유리수를 대입하여 f(x) 또는 df(x), 'F(x)', DF(a,b)를 입력해라")
-        print("만약 무한소수를 입력하고 싶다면, x, a, b 각각 양옆에 '를 붙여라")
-        print("ex) f('1/3'), df(2), F(x), DF(1.5, 2.5)\n")
+        print("함수 f, 미분, 부정적분, 정적분 :")
+        print("f(x), d('f(x)', x), ii('f(x)'), di('f(x)',유리수,유리수)\n")
+
+        print("(x = 'x' or 유리수 or 함수)")
+        print("(만약 무한소수를 입력하고 싶다면, x, a, b 각각 양옆에 '를 붙여라)")
+        print("ex) f('1/3'), d(g(x), 2), d(f(x), g(x)), ii(f(x)), di('g(x)',1.5,2.5)\n")
 
         print("3. 함수끼리 연산하기")
-        print("f(x), g(x)의 합/차/곱 : xs(a,b) / xd(a,b) / xm(a,b)")
-        print("(a, b = 'f(x)' or 'g(x)')\n")
+        print("f(x), g(x)의 합/차/곱/합성 : xs(a,b) / xd(a,b) / xm(a,b) / xc(a,b)")
+        print("(a, b = function)")
+        print("xc(f(x),g(x)) = f(g(x))\n")
 
+    print("fraction(a, b) : a / b")  # fraction 해석
     print("commands to help you : 'help()', 'tutorial()'")
     print("language selection: 'English()', '한국어()'")
     print("-" * 60)
@@ -87,12 +96,12 @@ def help():
 
         print("defining function : 'fx()' or 'gx()'\n")
 
-        print("f(x), df(x), 'F(x)', DF(r-n, r-n) :")
-        print("funcion f, differential, integral(indef) and integral(def)")
-        print("(x = 'x' or rational-number)\n")
+        print("f(x), d('f(x)', x), ii('f(x)'), di('f(x)', r-num, r-num) :")
+        print("funcion f, derivative, integral(indef) and integral(def)")
+        print("(x = 'x' or rational-number or function)\n")
 
-        print("(g(x), dg(x), 'G(x)', DG(r-n, r-n))\n")
-        print("sum/difference/multiplication of f(x), g(x) : xs(a,b) / xd(a,b) / xm(a,b) (a, b = 'f(x)' or 'g(x)')")
+        print("sum/difference/multiplication/composite_function of f(x), g(x) : xs(a,b) / xd(a,b) / xm(a,b) / xc(a,b)")
+        print("(a, b = function)")
     elif language == ["Korean"]:
         print("튜토리얼 : '튜토리얼()'")
         print("언어 선택 : '한국어()', 'english()'")
@@ -100,14 +109,12 @@ def help():
 
         print("함수 정의 : 'fx()' or 'gx()'\n")
 
-        print("f(x), df(x), 'F(x)', DF(유리수, 유리수)) :")
-        print("함수 f, 미분, 부정적분, 정벅분")
-        print("x = 'x' or 유리수\n")
+        print("f(x), d('f(x)', x), ii('f(x)'), di('f(x)',유리수,유리수)) :")
+        print("함수 f, 미분, 부정적분, 정적분")
+        print("(x = 'x' or 유리수 or function)\n")
 
-        print("(g(x), dg(x), 'G(x)', DG(유리수, 유리수))\n")
-        print("f(x), g(x)의 합/차/곱 : xs(a,b) / xd(a,b) / xm(a,b) (a, b = 'f(x)' or 'g(x)')")
-
-        print("fraction(a, b) 뜻 : a/b")  # fraction 해석
+        print("f(x), g(x)의 합/차/곱/합성 : xs(a,b) / xd(a,b) / xm(a,b) / xc(a,b)")
+        print("(a, b = function)")
     print("-" * 60)
 
 
@@ -126,7 +133,6 @@ def value_of_function(x, coefs):
 ### f(x) 추가 ###
 
 f_coefs = []
-df_coefs = []
 f_function = []
 
 ## 함수 f(x) 정의 ## (각 항의 계수를 입력받아 위에 list 형태로 저장)
@@ -168,118 +174,38 @@ def f(x):
     try:
         if f_coefs == []:
             raise
-        if x == "x":
+
+        if x == "x": # 함수식 출력
             print("f(x) =", f_function[0])
             return f_coefs
-        else:
+
+        elif str(type(x)) == "<class 'list'>": # 합성함수
+            composite = xc(f_coefs, x)
+            if x == f_coefs:
+                print("f(f(x)) =", end=' ')
+            elif x == g_coefs:
+                print("f(g(x)) =", end=' ')
+            else: 
+                print("f(func2(x)) =", end=' ')
+            print(Change_human_tailored_expression(composite))
+            return composite
+
+        else: 
             x = Change_str_fraction(str(x))
-            return value_of_function(x, f_coefs)  # 함숫값 계산, 출력
+            return value_of_function(x, f_coefs) # 함숫값 계산, 출력
 
     except:
         if f_coefs == []:
             if language == ["English"]:
-                print("'Error: f(x) is not defined'")
+                print("'Error: f(x) is not defined' in f(x)")
             elif language == ["Korean"]:
                 print("'오류: f(x)가 정의되지 않음'")
         elif isTrue_rational_num(x) == False:
             if language == ["English"]:
-                print("'Error: not rational numbers'")
+                print("'Error: not rational numbers' in f(x)")
             elif language == ["Korean"]:
                 print("'오류: 유리수가 아님'")
-
-
-## f(x) 미분, 값 ##
-def df(x):
-    try:
-        if len(f_coefs) == 1:
-            return 0
-
-        del df_coefs[:]
-        for n in range(len(f_coefs)):  # 각 항에서
-            df_coefs.append(n * f_coefs[n])  # 새 계수 = 차수 x 계수
-        del df_coefs[0]  # 상수항 사라짐
-
-        x = Change_str_fraction(str(x))
-        return value_of_function(x, df_coefs)
-
-    except:
-        if f_coefs == []:
-            if language == ["English"]:
-                print("'Error: f(x) is not defined'")
-            elif language == ["Korean"]:
-                print("'오류: f(x)가 정의되지 않음'")
-        elif x == "x":
-            print("df(x)/dx =", Change_human_tailored_expression(df_coefs))
-        elif isTrue_rational_num(x) == False:
-            if language == ["English"]:
-                print("'Error: not rational numbers'")
-            elif language == ["Korean"]:
-                print("'오류: 유리수가 아님'")
-
-
-## f(x) 부정적분 ##
-def F(x):
-    try:
-        if f_coefs == []:
-            raise
-        if x != "x" and isTrue_rational_num(str(x)) == False:
-            raise
-
-        if f_coefs[0] == 0 and len(f_coefs) == 1:  # 항이 0 하나면 0 출력
-            return 0
-
-        del df_coefs[:]
-        for n in range(len(f_coefs)):  # 각 항에서
-            df_coefs.append(f_coefs[n] / (n + 1))  # 새 계수 = 계수 / (차수+1)
-
-        df_coefs.reverse()
-        df_coefs.append("C")  # 적분상수 C 추가
-        df_coefs.reverse()
-        print("∫f(x)dx = " + Change_human_tailored_expression(df_coefs))
-
-    except:
-        if f_coefs == []:
-            if language == ["English"]:
-                print("'Error: f(x) is not defined'")
-            elif language == ["Korean"]:
-                print("'오류: f(x)가 정의되지 않음'")
-        elif x != "x" and isTrue_rational_num(x) == False:
-            if language == ["English"]:
-                print("'Error: not 'x' or rational numbers'")
-            elif language == ["Korean"]:
-                print("'오류: 'x' 또는 유리수가 아님'")
-
-
-## f(x) 정적분 ##
-def DF(range_a, range_b):
-    try:
-        if f_coefs == []:
-            raise
-        if isTrue_rational_nums([str(range_a), str(range_b)]) == False:
-            raise  # 유리수가 아니면 예외
-
-        a = Change_str_fraction(str(range_a))  # a, b를 분수꼴로 바꾸기
-        b = Change_str_fraction(str(range_b))
-
-        value = 0
-        del df_coefs[:]
-        for n in range(len(f_coefs)):
-            df_coefs.append(f_coefs[n] / (n + 1))
-            df_coefs[n] = df_coefs[n] * (b ** (n + 1) - a ** (n + 1))
-            value += df_coefs[n]  # value = 각 항을 정적분하여 모두 더한 값
-        return value
-
-    except:
-        if f_coefs == []:
-            if language == ["English"]:
-                print("'Error: f(x) is not defined'")
-            elif language == ["Korean"]:
-                print("'오류: f(x)가 정의되지 않음'")
-        elif isTrue_rational_nums([str(range_a), str(range_a)]) == False:
-            if language == ["English"]:
-                print("'Error: not rational numbers'")
-            elif language == ["Korean"]:
-                print("'오류: 유리수가 아님'")
+        else: print("알 수 없는 오류")
 
 
 ################################################################################################################################
@@ -287,7 +213,6 @@ def DF(range_a, range_b):
 ### 함수 g(x) 추가 ### (함수 f(x)와 똑같은 코드, g(x) 버전)
 
 g_coefs = []
-dg_coefs = []
 g_function = []
 
 ## 함수 g(x) 정의 ##
@@ -332,6 +257,18 @@ def g(x):
         if x == "x":
             print("g(x) =", g_function[0])
             return g_coefs
+
+        elif str(type(x)) == "<class 'list'>":
+            composite = xc(g_coefs, x)
+            if x == f_coefs:
+                print("g(f(x)) =", end=' ')
+            elif x == g_coefs:
+                print("g(g(x)) =", end=' ')
+            else: 
+                print("g(func2(x)) =", end=' ')
+            print(Change_human_tailored_expression(composite))
+            return composite
+            
         else:
             x = Change_str_fraction(str(x))
             return value_of_function(x, g_coefs)  # 함숫값 계산, 출력
@@ -339,113 +276,160 @@ def g(x):
     except:
         if g_coefs == []:
             if language == ["English"]:
-                print("'Error: g(x) is not defined'")
+                print("'Error: g(x) is not defined' in g(x)")
             elif language == ["Korean"]:
                 print("'오류: g(x)가 정의되지 않음'")
         elif isTrue_rational_num(x) == False:
             if language == ["English"]:
-                print("'Error: not rational numbers'")
+                print("'Error: not rational numbers' in g(x)")
             elif language == ["Korean"]:
                 print("오류: 유리수가 아님")
 
 
-## g(x) 미분, 값 ##
-def dg(x):
+################################################################################################################################
+
+### 미적분 추가 ###
+
+## 미분 ##
+def d(function, x): 
     try:
-        if len(g_coefs) == 1:
-            return 0
+        if str(type(function)) == "<class 'list'>":
+            dx_coefs = []
+            for n in range(len(function)):  # 각 항에서
+                dx_coefs.append(n * function[n])  # 새 계수 = 차수 x 계수
+            del dx_coefs[0]  # 상수항 사라짐
 
-        del dg_coefs[:]
-        for n in range(len(g_coefs)):  # 각 항에서
-            dg_coefs.append(n * g_coefs[n])  # 새 계수 = 차수 x 계수
-        del dg_coefs[0]  # 상수항 사라짐
+            if str(type(x)) == "<class 'list'>":
+                d_c_function = xm(  d( xc(function, x), 'x' ), d(x, 'x')  )
+                print("-" * 60)
+                if function == f_coefs:
+                    if x == f_coefs:
+                        print("df(f(x))/dx =", end=' ')
+                    elif x == g_coefs:
+                        print("df(g(x))/dx =", end=' ')
+                    else:
+                        print("df(func2(x))/dx =", end=' ')
+                elif function == g_coefs:
+                    if x == f_coefs:
+                        print("dg(f(x))/dx =", end=' ')
+                    elif x == g_coefs:
+                        print("dg(g(x))/dx =", end=' ')
+                    else: 
+                        print("dg(func2(x))/dx =", end=' ')
+                else:
+                    if x == f_coefs:
+                        print("dfunc1(f(x))/dx =", end=' ')
+                    elif x == g_coefs:
+                        print("dfunc1(g(x))/dx =", end=' ')
+                    else:
+                        print("dfunc1(func2(x))/dx =", end=' ')
+                print(Change_human_tailored_expression(d_c_function))
+                return d_c_function
 
-        x = Change_str_fraction(str(x))
-        return value_of_function(x, dg_coefs)
-
+            elif function == f_coefs:
+                print("df(x)/dx =", Change_human_tailored_expression(dx_coefs))
+            elif function == g_coefs:
+                print("dg(x)/dx =", Change_human_tailored_expression(dx_coefs))
+            else:
+                print("dfunc(x)/dx =", Change_human_tailored_expression(dx_coefs))
+            
+            if x == 'x':
+                return dx_coefs
+            else:
+                x = Change_str_fraction(str(x))
+                if function == f_coefs:
+                    print(f"df({x})/dx =", end=' ')
+                elif function == g_coefs:
+                    print(f"dg({x})/dx =", end=' ')
+                else:
+                    print(f"dfunc({x})/dx =", end=' ')
+                print(value_of_function(x, dx_coefs))
+                return value_of_function(x, dx_coefs)
+        else:
+            if isTrue_rational_num(str(x)) == True:
+                return 0
+            else: 
+                raise
     except:
-        if g_coefs == []:
+        if str(type(function)) != "<class 'list'>" and isTrue_rational_num(x) == False:
             if language == ["English"]:
-                print("'Error: g(x) is not defined'")
+                print("'Error: x is not rational number' in d(func, x)")
             elif language == ["Korean"]:
-                print("'오류: g(x)가 정의되지 않음'")
-        elif x == "x":
-            print("dg(x)/dx =", Change_human_tailored_expression(dg_coefs))
-        elif isTrue_rational_num(x) == False:
+                print("'오류: x가 유리수가 아님' d(func, x)에서")
+        elif function == None:
             if language == ["English"]:
-                print("'Error: not rational numbers'")
+                print("'Error: not defined function' in d(func, x)")
             elif language == ["Korean"]:
-                print("'오류: 유리수가 아님'")
+                print("'오류: 정의되지 않은 함수' d(func, x)에서")
+        else: print("알 수 없는 오류")
 
 
-## g(x) 부정적분 ##
-def G(x):
+## 부정적분 ##
+def ii(function): 
     try:
-        if g_coefs == []:
+        if str(type(function)) == "<class 'list'>":
+            iix_coefs = []
+            for n in range(len(function)):  # 각 항에서
+                iix_coefs.append(function[n] / (n + 1))  # 새 계수 = 계수 / (차수+1)
+            iix_coefs.reverse()
+            iix_coefs.append("C")  # 적분상수 C 추가
+            iix_coefs.reverse()
+            
+            if function == f_coefs:
+                print("∫f(x)dx =", Change_human_tailored_expression(iix_coefs)) # s = ∫
+            elif function == g_coefs:
+                print("∫g(x)dx =", Change_human_tailored_expression(iix_coefs))
+        else:
             raise
-        if x != "x" and isTrue_rational_num(str(x)) == False:
-            raise
-
-        if g_coefs[0] == 0 and len(g_coefs) == 1:
-            return 0
-
-        del dg_coefs[:]
-        for n in range(len(g_coefs)):
-            dg_coefs.append(g_coefs[n] / (n + 1))
-
-        dg_coefs.reverse()
-        dg_coefs.append("C")
-        dg_coefs.reverse()
-        print("∫g(x)dx = " + Change_human_tailored_expression(dg_coefs))
-
     except:
-        if g_coefs == []:
+        if function == None:
             if language == ["English"]:
-                print("'Error: g(x) is not defined'")
+                print("'Error: not defined function' in ii(func)")
             elif language == ["Korean"]:
-                print("'오류: g(x)가 정의되지 않음'")
-        elif x != "x" and isTrue_rational_num(x) == False:
+                print("'오류: 정의되지 않은 함수' ii(func))에서")  
+        elif str(type(function)) != "<class 'list'>": 
             if language == ["English"]:
-                print("'Error: not 'x' or rational numbers'")
+                print("'Error: indefinite integral cannot obtain function value' in ii(func)")
             elif language == ["Korean"]:
-                print("'오류: 'x' 또는 유리수가 아님'")
+                print("'오류: 부정적분은 함수값을 구할 수 없음' ii(func))에서")
+        else: print("알 수 없는 오류")
 
 
-## g(x) 정적분 ##
-def DG(range_a, range_b):
+## 정적분 ##
+def di(function, range_a, range_b):
     try:
-        if g_coefs == []:
-            raise
-        if isTrue_rational_nums([str(range_a), str(range_b)]) == False:
-            raise  # 유리수가 아니면 예외
-
         a = Change_str_fraction(str(range_a))  # a, b를 분수꼴로 바꾸기
         b = Change_str_fraction(str(range_b))
 
         value = 0
-        del dg_coefs[:]
-        for n in range(len(g_coefs)):
-            dg_coefs.append(g_coefs[n] / (n + 1))
-            dg_coefs[n] = dg_coefs[n] * (b ** (n + 1) - a ** (n + 1))
-            value += dg_coefs[n]  # value = 각 항을 정적분하여 모두 더한 값
-        return value
+        dix_coefs = []
+        for n in range(len(function)):
+            dix_coefs.append(function[n] / (n + 1))
+            dix_coefs[n] = dix_coefs[n] * (b ** (n + 1) - a ** (n + 1))
+            value += dix_coefs[n]  # value = 각 항을 정적분하여 모두 더한 값
 
+        if function == f_coefs:
+            print(f"∫{a},{b} f(x)dx =", value)
+        elif function == g_coefs:
+            print(f"∫{a},{b} g(x)dx =", value)
+        return value
     except:
-        if g_coefs == []:
+        if function == None:
             if language == ["English"]:
-                print("'Error: g(x) is not defined'")
+                print("'Error: not defined function' in di(func, a, b)")
             elif language == ["Korean"]:
-                print("'오류: g(x)가 정의되지 않음'")
+                print("'오류: 정의되지 않은 함수' di(func, a, b))에서")  
         elif isTrue_rational_nums([str(range_a), str(range_a)]) == False:
             if language == ["English"]:
-                print("'Error: not rational numbers'")
+                print("'Error: not rational numbers' in di(func, a, b)")
             elif language == ["Korean"]:
-                print("'오류: 유리수가 아님'")
+                print("'오류: 유리수가 아님' di(func, a, b))에서")
+        else: print("알 수 없는 오류")
 
 
 ################################################################################################################################
 
-### x에 관한 식의 연산 ###
+### x에 관한 식(함수)의 연산 추가 ###
 
 ## 오류 메세지 ##
 def error_messege_not_expression_for_x():
@@ -458,25 +442,17 @@ def error_messege_not_expression_for_x():
 ## x에 관한 식(함수)끼리 더하기 ##
 def xs(a, b):
     try:
-        if str(type(a)) == "<class 'list'>" and str(type(b)) == "<class 'list'>":
-            x_sum = []
-            if len(a) >= len(b):
-                for n in range(len(a)):
-                    if len(b)-1 >= n:
-                        x_sum.append(a[n] + b[n])
-                    else:
-                        x_sum.append(a[n])
-            else:
-                for n in range(len(b)):
-                    if len(a)-1 >= n:
-                        x_sum.append(a[n] + b[n])
-                    else:
-                        x_sum.append(b[n])
-
-            print("sum(x) =", Change_human_tailored_expression(x_sum))
-            return x_sum
+        sum_x = []
+        if len(a) >= len(b):
+            full_a, full_b = a, b + [0]*(len(a)-len(b))
         else:
-            raise
+            full_a, full_b = a + [0]*(len(b)-len(a)), b
+
+        for n in range(len(full_a)):
+            sum_x.append(full_a[n] + full_b[n])
+
+        print("sum(x) =", Change_human_tailored_expression(sum_x))
+        return sum_x
     except:
         error_messege_not_expression_for_x()
 
@@ -484,42 +460,66 @@ def xs(a, b):
 ## x에 관한 식(함수)끼리 빼기 ##
 def xd(a, b):
     try:
-        if str(type(a)) == "<class 'list'>" and str(type(b)) == "<class 'list'>":
-            x_difference = []
-            if len(a) >= len(b):
-                for n in range(len(a)):
-                    if len(b)-1 >= n:
-                        x_difference.append(a[n] - b[n])
-                    else:
-                        x_difference.append(a[n])
-            else:
-                for n in range(len(b)):
-                    if len(a)-1 >= n:
-                        x_difference.append(a[n] - b[n])
-                    else:
-                        x_difference.append(- b[n])
-
-            print("difference(x) =", Change_human_tailored_expression(x_difference))
-            return x_difference
+        difference_x = []
+        if len(a) >= len(b):
+            full_a, full_b = a, b + [0]*(len(a)-len(b))
         else:
-            raise
+            full_a, full_b = a + [0]*(len(b)-len(a)), b
+
+        for n in range(len(full_a)):
+            difference_x.append(full_a[n] - full_b[n])
+
+        print("difference(x) =", Change_human_tailored_expression(difference_x))
+        return difference_x
     except:
         error_messege_not_expression_for_x()
 
 
 ## x에 관한 식(함수)끼리 곱하기(전개) ##
-def xm(a, b):
+def xm(a, b): # Multiplication
     try:
-        x_expansion = []
+        expansion_x = []
         for l in range(len(a)+len(b)-1):
-            x_expansion.append(0)
+            expansion_x.append(0)
     
         for n in range(len(a)):
             for m in range(len(b)):
-                x_expansion[n+m] = x_expansion[n+m] + a[n] * b[m]
-                
-        print("expansion(x) =", Change_human_tailored_expression(x_expansion))
-        return x_expansion
+                expansion_x[n+m] = expansion_x[n+m] + a[n] * b[m]
+
+        if language == ["English"]:
+            print("expansion(x) =", Change_human_tailored_expression(expansion_x))
+        elif language == ["Korean"]:
+            print("전개식(x) =", Change_human_tailored_expression(expansion_x))    
+        return expansion_x
+    except:
+        error_messege_not_expression_for_x()
+
+
+## 합성함수 ## 
+def xc(f, g): # Composite function    
+    try:
+        print("-" * 60)
+        expansion_x = []
+        for n in range(len(f)): # 각 항에서
+            if n == 0:
+                expansion_x.append([f[0]])
+            else:
+                x_part = g
+                for m in range(n-1):
+                    x_part = xm(x_part, g) # x^n
+                expansion_x.append(xm([f[n]], x_part)) # a*(x^n)
+
+        for n in range(len(expansion_x)-1): # 각 항들 합쳐서 간단하게
+            expansion_x.insert(2, xs(expansion_x[0], expansion_x[1]))
+            del expansion_x[0:2]
+        
+        print("-" * 60)
+        if language == ["English"]:
+            print("composite(x) =", Change_human_tailored_expression(expansion_x[0]))
+        elif language == ["Korean"]:
+            print("합성함수(x) =", Change_human_tailored_expression(expansion_x[0]))
+
+        return expansion_x[0]
     except:
         error_messege_not_expression_for_x()
 
