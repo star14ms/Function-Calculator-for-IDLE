@@ -26,6 +26,7 @@ f(x); g(x); d(function, x); ii(function); di(function, a, b);
 ```
 xs(a,b); xd(a,b); xm(a,b); xc(a,b);
 # sum/difference/multiplication/composite of functions
+# a, b = function
 ```
 - basic path : \python\python38\Lib\site-packages
 
