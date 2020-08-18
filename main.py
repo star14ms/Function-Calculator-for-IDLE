@@ -43,7 +43,7 @@ def messege():
 
         print("2. Getting a value of function")
         print("funcion f, derivative, integral(indef) and integral(def) :")
-        print("f(x), d('f(x)', x), ii('f(x)'), di('f(x)', r-num, r-num)\n")
+        print("f(x), d('f(x)', x), ii('f(x)'), di('f(x)', r-num, r-num) (or 'g(x)')\n")
 
         print("(x = 'x' or rational-number or function)")
         print("(if you wanna type infinitely decimal, attach ' to both sides of the each of x, a, b value)")
@@ -61,7 +61,7 @@ def messege():
 
         print("2. 함수값 구하기")
         print("함수 f, 미분, 부정적분, 정적분 :")
-        print("f(x), d('f(x)', x), ii('f(x)'), di('f(x)',유리수,유리수)\n")
+        print("f(x), d('f(x)', x), ii('f(x)'), di('f(x)',유리수,유리수) (or 'g(x)')\n")
 
         print("(x = 'x' or 유리수 or 함수)")
         print("(만약 무한소수를 입력하고 싶다면, x, a, b 각각 양옆에 '를 붙여라)")
@@ -96,8 +96,8 @@ def help():
 
         print("defining function : 'fx()' or 'gx()'\n")
 
-        print("f(x), d('f(x)', x), ii('f(x)'), di('f(x)', r-num, r-num) :")
-        print("funcion f, derivative, integral(indef) and integral(def)")
+        print("funcion f, derivative, integral(indef) and integral(def) :")
+        print("f(x), d('f(x)', x), ii('f(x)'), di('f(x)', r-num, r-num) (or 'g(x)')")
         print("(x = 'x' or rational-number or function)\n")
 
         print("sum/difference/multiplication/composite_function of f(x), g(x) : xs(a,b) / xd(a,b) / xm(a,b) / xc(a,b)")
@@ -109,8 +109,8 @@ def help():
 
         print("함수 정의 : 'fx()' or 'gx()'\n")
 
-        print("f(x), d('f(x)', x), ii('f(x)'), di('f(x)',유리수,유리수)) :")
-        print("함수 f, 미분, 부정적분, 정적분")
+        print("함수 f, 미분, 부정적분, 정적분 :")
+        print("f(x), d('f(x)', x), ii('f(x)'), di('f(x)',유리수,유리수)) (or 'g(x)')")
         print("(x = 'x' or 유리수 or function)\n")
 
         print("f(x), g(x)의 합/차/곱/합성 : xs(a,b) / xd(a,b) / xm(a,b) / xc(a,b)")
