@@ -1,7 +1,6 @@
 # coefs : 식의 각 항의 계수들 (오름차순, list) (coefficients)
 
 항정보 = []  # 출력을 위해 변환시킨 항을 저장할 곳
-식 = []
 
 def 계수1_생략(coefs):
   for n in range(len(coefs)):
