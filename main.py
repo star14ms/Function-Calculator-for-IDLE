@@ -1,4 +1,4 @@
-from functions import *
+from .functions import *
 from sympy import Symbol, factor
 
 x = "x"
