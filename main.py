@@ -1,4 +1,5 @@
-from .functions import *
+from functions import *
+from sympy import Symbol, factor
 
 x = "x"
 ################################################################################################################################
@@ -50,7 +51,7 @@ def messege():
         print("ex) f('1/3'), d(g(x), 2), d(f(x), g(x)), ii(f(x)), di(g(x),1.5,2.5)\n")
 
         print("3. Calculating between functions")
-        print("sum/difference/multiplication/composite of functions :\nxs(a,b) / xd(a,b) / xm(a,b) / xc(a,b)")
+        print("sum/difference/multiplication/composite/division of functions :\nxa(a,b) / xs(a,b) / xm(a,b) / xc(a,b) / xd(a,b)")
         print("(a, b = function)")
         print("xc(f(x),g(x)) = f(g(x))\n")
         
@@ -68,7 +69,7 @@ def messege():
         print("ex) f('1/3'), d(g(x), 2), d(f(x), g(x)), ii(f(x)), di('g(x)',1.5,2.5)\n")
 
         print("3. 함수끼리 연산하기")
-        print("함수의 합/차/곱/합성 : xs(a,b) / xd(a,b) / xm(a,b) / xc(a,b)")
+        print("함수의 합/차/곱/합성/나눗셈 : xa(a,b) / xs(a,b) / xm(a,b) / xc(a,b) / xd(a,b)")
         print("(a, b = function)")
         print("xc(f(x),g(x)) = f(g(x))\n")
 
@@ -100,7 +101,7 @@ def help():
         print("f(x), d('f(x)', x), ii('f(x)'), di('f(x)', r-num, r-num) (or 'g(x)')")
         print("(x = 'x' or rational-number or function)\n")
 
-        print("sum/difference/multiplication/composite of functions : xs(a,b) / xd(a,b) / xm(a,b) / xc(a,b)")
+        print("sum/difference/multiplication/composite/division of functions : \nxa(a,b) / xs(a,b) / xm(a,b) / xc(a,b) / xd(a,b)")
         print("(a, b = function)")
     elif language == ["Korean"]:
         print("튜토리얼 : '튜토리얼()'")
@@ -113,7 +114,7 @@ def help():
         print("f(x), d('f(x)', x), ii('f(x)'), di('f(x)',유리수,유리수)) (or 'g(x)')")
         print("(x = 'x' or 유리수 or function)\n")
 
-        print("함수의 합/차/곱/합성 : xs(a,b) / xd(a,b) / xm(a,b) / xc(a,b)")
+        print("함수의 합/차/곱/합성/나눗셈 : xa(a,b) / xs(a,b) / xm(a,b) / xc(a,b) / xd(a,b)")
         print("(a, b = function)")
     print("-" * 60)
 
@@ -153,7 +154,7 @@ def fx():
         f_coefs.reverse()  # 오름차순 (계산, 출력에 용이)
 
         del f_function[:]
-        f_function.append(Change_human_tailored_expression(f_coefs))
+        f_function.append(Change_to_x_expression_for_human(f_coefs))
         print("f(x) =", f_function[0])  # 함수식 출력
 
     except:
@@ -187,7 +188,7 @@ def f(x):
                 print("f(g(x)) =", end=' ')
             else: 
                 print("f(func2(x)) =", end=' ')
-            print(Change_human_tailored_expression(composite))
+            print(Change_to_x_expression_for_human(composite))
             return composite
 
         else: 
@@ -233,7 +234,7 @@ def gx():
         g_coefs.reverse()
 
         del g_function[:]
-        g_function.append(Change_human_tailored_expression(g_coefs))
+        g_function.append(Change_to_x_expression_for_human(g_coefs))
         print("g(x) =", g_function[0])
 
     except:
@@ -266,7 +267,7 @@ def g(x):
                 print("g(g(x)) =", end=' ')
             else: 
                 print("g(func2(x)) =", end=' ')
-            print(Change_human_tailored_expression(composite))
+            print(Change_to_x_expression_for_human(composite))
             return composite
             
         else:
@@ -299,7 +300,7 @@ def d(function, x):
                 dx_coefs.append(n * function[n])  # 새 계수 = 차수 x 계수
             del dx_coefs[0]  # 상수항 사라짐
 
-            if str(type(x)) == "<class 'list'>":
+            if str(type(x)) == "<class 'list'>": # 합성함수의 미분
                 d_c_function = xm(  d( xc(function, x), 'x' ), d(x, 'x')  )
                 print("-" * 60)
                 if function == f_coefs:
@@ -323,20 +324,20 @@ def d(function, x):
                         print("dfunc1(g(x))/dx =", end=' ')
                     else:
                         print("dfunc1(func2(x))/dx =", end=' ')
-                print(Change_human_tailored_expression(d_c_function))
+                print(Change_to_x_expression_for_human(d_c_function))
                 return d_c_function
 
-            elif function == f_coefs:
-                print("df(x)/dx =", Change_human_tailored_expression(dx_coefs))
+            elif function == f_coefs: # 기본 미분
+                print("df(x)/dx =", Change_to_x_expression_for_human(dx_coefs))
             elif function == g_coefs:
-                print("dg(x)/dx =", Change_human_tailored_expression(dx_coefs))
+                print("dg(x)/dx =", Change_to_x_expression_for_human(dx_coefs))
             else:
-                print("dfunc(x)/dx =", Change_human_tailored_expression(dx_coefs))
+                print("dfunc(x)/dx =", Change_to_x_expression_for_human(dx_coefs))
             
             if x == 'x':
                 return dx_coefs
             else:
-                x = Change_str_fraction(str(x))
+                x = Change_str_fraction(str(x)) # 미분한 함수값 
                 if function == f_coefs:
                     print(f"df({x})/dx =", end=' ')
                 elif function == g_coefs:
@@ -346,8 +347,14 @@ def d(function, x):
                 print(value_of_function(x, dx_coefs))
                 return value_of_function(x, dx_coefs)
         else:
-            if isTrue_rational_num(str(x)) == True:
+            if isTrue_rational_num(str(x)) == True: # 상수 미분
                 return 0
+            # elif '/' in x: # 몫의 미분을 시도하려 했으나, 차수가 음수가 될 수도 있어야 함
+            #     numerator, denominator = x.split('/')
+            #     if denominator = 'f(x)':
+            #         if numerator = '1':
+            #             - xm(f_coefs, f_coefs)
+            #         elif numerator = 'g(x)':
             else: 
                 raise
     except:
@@ -376,9 +383,9 @@ def ii(function):
             iix_coefs.reverse()
             
             if function == f_coefs:
-                print("∫f(x)dx =", Change_human_tailored_expression(iix_coefs)) # s = ∫
+                print("∫f(x)dx =", Change_to_x_expression_for_human(iix_coefs)) # s = ∫
             elif function == g_coefs:
-                print("∫g(x)dx =", Change_human_tailored_expression(iix_coefs))
+                print("∫g(x)dx =", Change_to_x_expression_for_human(iix_coefs))
         else:
             raise
     except:
@@ -439,8 +446,8 @@ def error_messege_not_expression_for_x():
         print("'오류: 적어도 하나가 x에 관한 식이 아님'")
 
 
-## x에 관한 식(함수)끼리 더하기 ##
-def xs(a, b):
+## 덧셈 ##
+def xa(a, b): # addition
     try:
         sum_x = []
         if len(a) >= len(b):
@@ -451,14 +458,14 @@ def xs(a, b):
         for n in range(len(full_a)):
             sum_x.append(full_a[n] + full_b[n])
 
-        print("sum(x) =", Change_human_tailored_expression(sum_x))
+        print("sum(x) =", Change_to_x_expression_for_human(sum_x))
         return sum_x
     except:
         error_messege_not_expression_for_x()
 
 
-## x에 관한 식(함수)끼리 빼기 ##
-def xd(a, b):
+## 뺄셈 ##
+def xs(a, b): # subtraction
     try:
         difference_x = []
         if len(a) >= len(b):
@@ -469,14 +476,14 @@ def xd(a, b):
         for n in range(len(full_a)):
             difference_x.append(full_a[n] - full_b[n])
 
-        print("difference(x) =", Change_human_tailored_expression(difference_x))
+        print("difference(x) =", Change_to_x_expression_for_human(difference_x))
         return difference_x
     except:
         error_messege_not_expression_for_x()
 
 
-## x에 관한 식(함수)끼리 곱하기(전개) ##
-def xm(a, b): # Multiplication
+## 곱셈(전개) ##
+def xm(a, b): # multiplication
     try:
         expansion_x = []
         for l in range(len(a)+len(b)-1):
@@ -487,9 +494,9 @@ def xm(a, b): # Multiplication
                 expansion_x[n+m] = expansion_x[n+m] + a[n] * b[m]
 
         if language == ["English"]:
-            print("expansion(x) =", Change_human_tailored_expression(expansion_x))
+            print("expansion(x) =", Change_to_x_expression_for_human(expansion_x))
         elif language == ["Korean"]:
-            print("전개식(x) =", Change_human_tailored_expression(expansion_x))    
+            print("전개식(x) =", Change_to_x_expression_for_human(expansion_x))    
         return expansion_x
     except:
         error_messege_not_expression_for_x()
@@ -515,13 +522,30 @@ def xc(f, g): # Composite function
         
         print("-" * 60)
         if language == ["English"]:
-            print("composite(x) =", Change_human_tailored_expression(expansion_x[0]))
+            print("composite(x) =", Change_to_x_expression_for_human(expansion_x[0]))
         elif language == ["Korean"]:
-            print("합성함수(x) =", Change_human_tailored_expression(expansion_x[0]))
+            print("합성함수(x) =", Change_to_x_expression_for_human(expansion_x[0]))
 
         return expansion_x[0]
     except:
         error_messege_not_expression_for_x()
+
+
+## 나눗셈 ##
+def xd(a, b): # division
+    try:
+        x = Symbol('x')
+        quotient = '(' + x_expression_for_sympy(a) + ')/(' + x_expression_for_sympy(b) + ')'
+        quotient = str(factor(quotient))
+        quotient = quotient.replace('**','^').replace('*','')
+
+        if language == ["English"]:
+            print("expansion(x) =", Change_to_x_expression_for_human(quotient))
+        elif language == ["Korean"]:
+            print("전개식(x) =", Change_to_x_expression_for_human(quotient))  
+            #
+    except:
+        error_messege_not_expression_for_x() 
 
 
 ################################################################################################################################
