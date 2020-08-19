@@ -1,0 +1,66 @@
+# coefs : 식의 각 항의 계수 리스트 (오름차순, list) 
+
+항정보 = []  # 출력을 위해 변환시킨 항을 저장할 곳
+
+def 계수1_생략(coefs):
+  for n in range(len(coefs)):
+    if n!=0 and (coefs[n] == 1 or coefs[n] == -1):
+      항정보.append(str(coefs[n]).replace('1',''))
+    else:
+      항정보.append(str(coefs[n]))
+      
+def x기호_지수_추가(coefs):
+  for n in range(len(coefs)):
+    항정보[n] = 항정보[n] + 'x^' + str(n)
+
+def 제곱01_생략(coefs):
+  항정보[0] = 항정보[0].replace('x^0','')
+  if len(coefs)>1:
+    항정보[1] = 항정보[1].replace('^1','')
+  
+def 계수0_생략(coefs):
+  for n in range(len(coefs)):
+    if 항정보[len(coefs)-1-n].find('0')==0:
+      del 항정보[len(coefs)-1-n]
+
+def Change_to_x_expression_for_human(coefs): # 인간맞춤형 x에 대한 식으로 변환
+  del 항정보[:]
+  계수1_생략(coefs)
+  x기호_지수_추가(coefs)
+  제곱01_생략(coefs)
+  계수0_생략(coefs)
+  항정보.reverse()
+  return '+'.join(항정보).replace('+-','-').replace('-',' - ').replace('+',' + ').lstrip(' ')
+
+
+################################################################################################################################
+# coefs : 식의 각 항의 계수 리스트 (오름차순, list)
+
+def x_expression_for_sympy(coefs): # coefficients
+  for n in range(len(coefs)):
+    coefs[n] = str(coefs[n]) + '*x**' + str(n)
+  return '+'.join(coefs).replace('+-','-').replace('-',' - ').replace('+',' + ').lstrip(' ')
+
+################################################################################################################################
+# coef_expos = x에 대한 식의 각 항의 계수와 지수 리스트 (오름차순, list) 
+
+def expression_for_x(coef_expos): # coefficients, exponent
+  terms = []
+  expansion = []
+  for n in range(int(len(coef_expos)/2)): # 짝수
+    terms.append([coef_expos[2*n], coef_expos[2*n+1]])
+    expansion.append(coef_expos[2*n+1])
+  expansion.sort()
+  for n in range(len(terms)):
+    for m in range(len(expansion)):
+      if terms[n][-1] == expansion[m]:
+        expansion[m] = str(terms[n][0]) + '*x**' + str(terms[n][-1])
+  expansion = '+'.join(expansion).replace('+-','-').replace('-',' - ').replace('+',' + ').lstrip(' ')
+  return expansion
+
+# print(expression_for_x([1, 2, 3, 1, 5, 3]))
+# def coef_expos_in_expression_for_x(expansion):
+      
+
+
+
