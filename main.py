@@ -1,5 +1,5 @@
 from .functions import *
-from sympy import Symbol, factor
+from sympy import Symbol
 
 x = "x"
 ################################################################################################################################
@@ -536,7 +536,6 @@ def xd(a, b): # division
     try:
         x = Symbol('x')
         quotient = '(' + x_expression_for_sympy(a) + ')/(' + x_expression_for_sympy(b) + ')'
-        quotient = str(factor(quotient))
         quotient = quotient.replace('**','^').replace('*','')
 
         if language == ["English"]:
